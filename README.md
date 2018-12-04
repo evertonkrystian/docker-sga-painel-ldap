@@ -1,11 +1,19 @@
 # docker-sga-painel-ldap
-This project is about instalation of novoSGA.
+This project is about instalation of novoSGA 1.5 version.
+
 Features:
-  i LDAP Module;
-  ii Painel module;
-  iii PostgresSQL connection.
+  * LDAP Module;
+  * Painel module;
+  * PostgresSQL connection.
 Painel Module was eidted to show user's names instead tickets or passwords registers in row.
 
+
 ####
-Este projeto trata da instalação do novoSGA versão 1.5 com módulos de login via LDAP, Painel e conexão com PostgresSQL habilitados.
+Este projeto trata da instalação do novoSGA versão 1.5.
+
+Features:
+  * LDAP;
+  * Painel;
+  * Conexão com PostgresSQL.
+
 Também foram realizadas modificaçes no painel para expor o nome dos usuários no lugar de senhas.
