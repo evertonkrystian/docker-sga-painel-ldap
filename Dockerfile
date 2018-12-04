@@ -76,6 +76,9 @@ ENV TZ="America/Fortaleza" \
 
 RUN chown -R 33:33 bin/
 
+COPY painel /var/www/html/painel
+RUN chown -R 33:33 /var/www/html/painel
+
 COPY start.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/start.sh
 
