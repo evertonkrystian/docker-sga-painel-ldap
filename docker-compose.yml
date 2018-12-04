@@ -1,0 +1,50 @@
+version: '2'
+
+volumes:
+  dpgsga:
+  dsga:
+  dsgaetc:
+
+services:
+  sga:
+    build: .
+    image: novosga:1.5.1
+    container_name: sga
+    restart: always
+    depends_on:
+      - dbsga
+    volumes:
+      - dsga:/var/www/
+      - dsgaetc:/etc/
+    ports:
+      - "80:80"
+      - "2020:2020"
+    environment:
+      APP_ENV: 'prod'
+      DATABASE_HOST : dbsga
+      DATABASE_NAME : sgadb
+      DATABASE_USER : sga
+      DATABASE_PASSWORD : 'qwe123'
+      DATABASE_SGDB : 'postgres'
+      NOVOSGA_ADMIN_USERNAME: 'admin'
+      NOVOSGA_ADMIN_PASSWORD: '123456'
+      NOVOSGA_ADMIN_FIRSTNAME: 'Administrator'
+      NOVOSGA_ADMIN_LASTNAME: 'Global'
+      TZ: 'America/Fortaleza'
+      LANGUAGE: 'pt_BR'
+
+  dbsga:
+    image: postgres:9.6
+    container_name: dbsga
+    restart: always
+    volumes: 
+      - dpgsga:/var/lib/postgresql/data
+    environment:
+      # Set TimeZone
+      TZ: 'America/Fortaleza'
+      POSTGRES_PASSWORD : 'P4ssw0rd!'
+      POSTGRES_USER : postgres
+      POSTGRES_DB :  postgres
+    ports:
+      - 5432:5432
+    
