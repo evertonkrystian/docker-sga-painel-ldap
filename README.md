@@ -17,3 +17,12 @@ Features:
   * Conexão com PostgresSQL.
 
 Também foram realizadas modificaçes no painel para expor o nome dos usuários no lugar de senhas.
+
+
+### Done, Writing ... ###
+
+ Configs on database container:
+   * Create database to SGA;
+   * Create user SGA;
+   * Set database user to sgadb;
+   * Grants to user;
